@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 4 | Postition and Contailer Elements</title>
+    <style>
+        body{
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        #container{
+            background-color: grey;
+            border: 1px solid black;
+            width: 1000px;
+            /*height: 850px;*/
+        }
+        header{
+            width: 100%;
+            /*height: 100px;*/
+            background-color: beige;
+            text-align: center;
+        }
+        nav{
+            width: 100%;
+            /*height: 50px;*/
+            background-color: blueviolet;
+        }
+        section{
+            float: left;
+            width: 65%;
+            /*Height: 300px;*/
+            background-color: brown;
+        }
+        article{
+            padding: 20px;
+            float: left;
+            width: 65%;
+            /*height: 300px;*/
+            background-color: aquamarine;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        aside{
+            float: right;
+            width: 35%;
+            /*height: 600px;*/
+            background-color: cadetblue;
+        }
+        footer{
+            clear: both;
+            width: 100%;
+            /*height: 100px;*/
+            background-color: orange;
+            text-align: center;
+        }
+        .clicker{
+        width: 200px;
+        height: 100px;
+        border: 1px solid black;
+        background-color: bisque;
+        border-radius: 10px;
+        text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        margin: auto;
+    }
+    .buttond{
+        margin: auto;
+        width: 300px;
+        height: 50px
+    }
+    .btn{
+        float: left;
+        width: 140px;
+        height: 50px;
+        background-color: gray;
+        text-decoration: none;
+        text-align: center;
+        line-height: 50px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-right: 5px;
+    }
+    .btn:hover{
+        background-color: aliceblue;
+        color: black;
+    }
+
+    </style>
+</head>
+<body>
+   <div id="container">
+    <!--HTML Content goes here-->
+    <header>
+        <h1> Week-4 Day-4 | CSS position and containers</h1>
+    </header>
+    <nav>
+        <div class="buttons"></div>
+        <a href="#" class="btn">Home</a>
+        <a href="#" class="btn"> page 2</a>
+    </nav>
+    <aside>
+        <ul>
+            <li>Element 1</li>
+            <li>Element 2</li>
+            <li>Element 3</li>
+        </ul>
+    </aside>
+    <section>
+        <div class="clicker">
+            <p>clicks:<span id="clicks"></span></p>
+            <button onclick="updateClicks()">Click here for funny</button>
+            <button onclick="window.location.href = 'http://www.youtube.com'">Click this button for youtube</button>
+        </div>
+    </section>
+    <article>
+        <h1> this is the Article</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique culpa sed ducimus vitae laborum aliquid repudiandae provident, quidem rem. Id nemo ipsa, labore nostrum repellendus minus? Totam animi delectus officiis?</p>
+    </article>
+    <footer>
+        <p>&copy 2022 HTML/JavaScript Class</p>
+    </footer>
+   </div> 
+</body>
+<script>
+    var clicks=0
+
+    function updateClicks(){
+        clicks +=1
+        document.getElementById("clicks").innerHTML = clicks
+    }
+</script>
+</html>
