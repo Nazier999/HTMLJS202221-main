@@ -1,10 +1,19 @@
 body{
     display: flex;
     justify-content: center;
+    background-color: black;
+    background-image: url(images/MetroidDread.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #57FA00;
+    font-family: sans-serif;
+    
 }
+
 #container{
     width: 1000px;
-    border: 1px solid black;
+    border: 1px solid #57FA00;
+    background-color: rgba(0, 0, 0, .3);
 }
 header{
     width: 100%;
@@ -16,7 +25,7 @@ nav{
 }
 article{
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid #57FA00;
 }
 footer{
     width: 100%;
@@ -30,7 +39,7 @@ footer{
     margin-right: 10px;
 }
 .article-image{
-    border: 2px solid red;
+    border-right: 2px solid #57FA00;
     margin-left: 10px;
 }
 #title-header{
@@ -41,7 +50,7 @@ footer{
 #contact-info{
     width: 200px;
     float: right;
-    margin-right: 10px;
+    margin-right: 15px;
     margin-top: 20px;
 }
 .contact{
@@ -58,13 +67,13 @@ footer{
     float: left;
     width: 135px;
     height: 50px;
-    background-color: grey;
+    background-color: #F00801;
     text-decoration: none;
     text-align: center;
     line-height: 50px;
     color: white;
 }
-.btn:hover{
-    background-color: rgb (19, 19, 19);
-    color: white;
+.btn:hover {
+	background-color: #710c04;
+	color: white;
 }
