@@ -8,7 +8,7 @@
     <style>
         @font-face {
             font-family: AmongUs;
-            src: url(fonts/AmongUs.ttf);
+            src: url(fonts/AmongUsRegular.ttf);
         }
         body{
             background-color: rgb(173, 250, 173);
@@ -30,7 +30,9 @@
     <ol>
         <li><p><b>Riddle:</b> What comes once a minute, twice in a moment, but never in a thousaand years?</p> <br> 
            
-            <b>Answer:</b> <p onclick="showAnswer('answer','The Letter M.')" id="answer">Click For answer</p> </li><br>
+            <b>Answer:</b> <button onclick="showAnswer('answer','The Letter M.')" >Click For answer</button> 
+            <span id="answer"></span>
+        </li><br>
         <li><p><b>Riddle:</b> What must be broken before you use it? </p></li><br>
         
         <b>Answer:</b> <p onclick="showAnswer('answer2','An Egg')" id="answer2">Click for answer</p></li><br>
