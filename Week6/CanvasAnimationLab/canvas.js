@@ -3,7 +3,7 @@ var ctx = canvas.getContext("2d");
 var timer = requestAnimationFrame(main);
 var x = 300;
 var y = 300;
-var radius = 200;
+var radius = 50;
 var speedX = 5;
 var speedY = 5;
 //loading image sprites
@@ -12,13 +12,19 @@ shrek.src = "images/Shrek.png";
 shrek.onload = function(){
     main();
 }
-
+var bg = new Image();
+bg.src = 'images/GreenHillClassicWorld.webp'
+bg.onload = function(){
+    main ();
+}
 function main() {
     //clear the canvas
     ctx.clearRect(0,0, canvas.width, canvas.height);
     //call circle function
+    //drawCircle("blue",x,y,radius);
     drawCircle("green",x, y, radius);
-
+    ctx.drawImage(bg,0,0,canvas.width,canvas.height)
+    ctx.drawImage(shrek, x-radius, y-radius, 100, 100)
     //update the position of object
     x += speedX;
     y += speedY;
