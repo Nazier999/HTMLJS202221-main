@@ -1,4 +1,9 @@
 //canvas stuff
+var bg = new Image();
+bg.src = '/images.hero.avif'
+bg.onload = function(){
+    main ();
+}
 var canvas = document.getElementById("c");
 var ctx = canvas.getContext("2d");
 
@@ -7,7 +12,11 @@ ctx.fillStyle = "purple";
 ctx.strokeStyle = 'yellow'
 ctx.fillText("Welcome to our RPS game!", 200, 280);
 ctx.strokeText("Welcome to our RPS game!", 200,280)
-
+var x = 300;
+var y = 300;
+var radius = 50;
+var speedX = 5;
+var speedY = 5;
 
 alert('hello this is the alert');
 //Array datatype
@@ -31,6 +40,13 @@ document.getElementById("scissors").addEventListener("click", function (e) {
     alert('you clicked ' + rps[2])
     playGame(rps[2]);
 });
+function main() {
+    //clear the canvas
+    ctx.clearRect(0,0, canvas.width, canvas.height);
+}
+
+ctx.drawImage(bg,0,0,canvas.width,canvas.height)
+
 
 function playGame(playerChoice) {
     var cpuChoice = Math.floor(Math.random() * 2.99);
