@@ -1,6 +1,6 @@
 //canvas stuff
 var bg = new Image();
-bg.src = '/images.hero.avif'
+bg.src = 'Week6/CanvasAnimationLab/images/images.hero.avif'
 bg.onload = function(){
     main ();
 }
