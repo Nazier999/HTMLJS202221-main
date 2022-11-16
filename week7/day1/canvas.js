@@ -93,7 +93,7 @@ square2.drawCircle();
 var circle = new GameObject();
 circle.drawCircle();
 
-var numberOfObjects = 999;
+var numberOfObjects = 1000;
 
 var circles = [square, square2, circle];
 
