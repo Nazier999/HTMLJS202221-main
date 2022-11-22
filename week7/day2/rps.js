@@ -2,6 +2,7 @@
 var canvas = document.getElementById("c");
 var ctx = canvas.getContext('2d');
 
+
 //create instances for images rps
 var rock = new Image();
 var paper = new Image();
@@ -9,6 +10,8 @@ var scissors = new Image();
 var hrock = new Image();
 var hpaper = new Image();
 var hscissors = new Image();
+var goku = new Image();
+var vegeta = new Image();
 
 rock.src = "images/rock.jpg";
 paper.src = "images/paper.jpg";
@@ -18,7 +21,10 @@ hrock.src = "images/rock2.jpg";
 hpaper.src = "images/paper2.jpg";
 hscissors.src = "images/scissors2.jpg";
 
-var result = "select a button from above to choose"
+goku.src = "images/goku.png";
+vegeta.src = "images/Vegeta.png";
+
+var result = "select a button from above to choose";
 
 hscissors.onload = function(){
     draw(rock, paper, scissors, rock, paper, scissors);
@@ -37,11 +43,11 @@ function keyPressDown(e){
         console.log(e.keyCode)
         if(e.keyCode == 32){
             gameOver = false;
-            draw(rock, paper, scissors, rock, paper, scissors);
+            draw(rock, paper, scissors, rock, paper, scissors, goku, vegeta);
         }
 }
 
-function draw(rock, paper, scissors, crock, cpaper, cscissors){
+function draw(rock, paper, scissors, crock, cpaper, cscissors, goku, vegeta){
     if(gameOver == true){
         ctx.font = "30px Arial";
         ctx.textAlign = "center";
@@ -51,9 +57,12 @@ function draw(rock, paper, scissors, crock, cpaper, cscissors){
     }
         //clear canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
-       
-
-    
+        
+        ctx.fillText("Goku", canvas.width/4,100)
+        ctx.drawImage(goku, 0, 90, 550, 800)
+        
+        ctx.fillText("Vegeta", canvas.width/1.25,100)
+        ctx.drawImage(vegeta, 650, 90, 400, 750)
 
         ctx.font = "30px Arial";
         ctx.textAlign = "center";
