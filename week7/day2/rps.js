@@ -78,9 +78,7 @@ var gameOver = true;
 function keyPressDown(e){
     console.log(e.keyCode)
     if(e.keycode == 32)
-    if (gokuhealth || vegetahealth <= 0) {
-        restartGame();
-    }
+    gameOver= false;
 }
 
     function keyPressUp(e){
@@ -89,7 +87,16 @@ function keyPressDown(e){
             gameOver = false;
             draw(rock, paper, scissors, rock, paper, scissors, goku, vegeta);
         }
+
 }
+function Win(e) {
+    if (vegetahealth <= 0) {
+      gameOver == true;
+    if(gameOver == true)
+    restartGame();
+    }
+}
+
 
 function draw(rock, paper, scissors, crock, cpaper, cscissors, goku, vegeta){
     if(gameOver == true){
