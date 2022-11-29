@@ -13,6 +13,16 @@ var hscissors = new Image();
 var goku = new Image();
 var vegeta = new Image();
 
+
+
+
+//utility function
+function randomNumber(high,low){
+    return Math.round(Math.random() * (high - low) + low);
+}
+
+
+
 rock.src = "images/rock.jpg";
 paper.src = "images/paper.jpg";
 scissors.src = "images/scissors.jpg";
@@ -174,7 +184,7 @@ function playGame(playerChoice) {
                 //itsa tie
                 //alert("CPU chose Rock. You Lose!")
                 result = "CPU chose scissors. CPU Wins!"
-                draw(hrock,paper,scissors,hrock,paper,scissors)
+                draw(hrock,paper,scissors,hrock,paper,scissors,goku,vegeta)
             }
             else if (cpuChoice == 1) {
                 //alert("CPU cose paper. It's a Win!");
@@ -190,3 +200,4 @@ function playGame(playerChoice) {
 
     }
 }
+
