@@ -3,19 +3,27 @@ var ctx = canvas.getContext("2d");
 
 var timer = requestAnimationFrame(main);
 
-var start = 50;
-var finish = 750;
+var start = 58;
+var finish = 956;
 
 //car variable
 var carPos = 2;
 var startFuel = randomNumber(canvas.width, 600);
-var speed = 3
+var speed = 3;
 var gameOver = true;
 
 //start timer vars
-var seconds = 3
+var seconds = 3;
 var fps = 60;
 var frames = fps;
+
+//terrain and car
+var van = new Image();
+var road = new Image();
+
+//terrain and car src
+van.src = "images/Van.png"
+road.src = "images/DesertRoad.jpg"
 
 //addEventListener
 document.addEventListener('keydown', pressSpace)
@@ -31,11 +39,13 @@ function pressSpace(e) {
 }
 //create Healthbar
 var fuel = startFuel;
-var fuelBarWidth = 300;
+var fuelBarWidth = 512;
 
 function main() {
-    //clear canvads
+    //clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+   
 
     if (gameOver) {
         console.log("working");
@@ -60,17 +70,24 @@ function main() {
             fuel -= speed;
             }
         }
+        ctx.drawImage(road, 0, 0, 1024, 768);
+
         drawStartFinishLines();
         drawCar();
 
 
         drawFuelBar();
 
+       
+        
         if (fuel <= 0 || carPos + 40 > finish) {
             drawResults();
 
         }
+        ctx.drawImage(van,carPos, 720, 80, 40);    
+       
     }
+//make bacground image
 
 
     //refresh main function 
@@ -82,13 +99,13 @@ function main() {
 function drawStartFinishLines() {
     //draw startline
     ctx.fillStyle = 'black';
-    ctx.fillRect(start, 50, 10, 500);
+    ctx.fillRect(start, 615, 15, 150, 200);
     //draw finish line
-    ctx.fillRect(finish, 50, 10, 500);
+    ctx.fillRect(finish, 615, 15, 150, 200);
 }
 function drawCar() {
-    ctx.fillStyle = 'red';
-    ctx.fillRect(carPos, canvas.height / 2, 40, 20);
+    //ctx.fillStyle = 'red';
+    //ctx.fillRect(carPos, canvas.height / 2, 40, 20);
 }
 
 //utility function 
@@ -136,8 +153,8 @@ function drawStartFinsihLines() {
 }
 
 function drawCar() {
-    ctx.fillStyle = 'red';
-    ctx.fillRect(carPos, canvas.height / 2, 40, 20);
+    //ctx.fillStyle = 'red';
+   // ctx.fillRect(carPos, canvas.height / 2, 40, 20);
 }
 
 
