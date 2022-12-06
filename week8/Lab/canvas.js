@@ -52,7 +52,7 @@ function main() {
         //main menu screen
         ctx.save();
         ctx.fillStyle = 'black';
-        ctx.font = '30px Arial';
+        ctx.font = '30px Verdana';
         ctx.textAlign = "center";
         ctx.fillText('press space to start', canvas.width / 2, canvas.height / 2);
         ctx.restore();
@@ -98,7 +98,7 @@ function main() {
 
 function drawStartFinishLines() {
     //draw startline
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'Yellow';
     ctx.fillRect(start, 615, 15, 150, 200);
     //draw finish line
     ctx.fillRect(finish, 615, 15, 150, 200);
@@ -120,33 +120,10 @@ function runStartTimer(){
     }
 }
 
-function drawStartTimer(){
-    if(seconds > 0){
-        ctx.save();
-        ctx.fillStyle = 'black';
-        ctx.font = '30px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText(seconds, canvas.width/2, canvas.height/2)
-        ctx.restore();
-    }else{
-        ctx.save();
-        ctx.fillStyle = 'black';
-        ctx.font = '30px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText(seconds, canvas.width/2, canvas.height/2)
-        ctx.restore();
-    }
-        ctx.save();
-        ctx.fillStyle = 'black';
-        ctx.font = '30px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText("GO", canvas.width/2, canvas.height/2)
-        ctx.restore();
-}
 
 function drawStartFinsihLines() {
     //draw startline
-    ctx.fillStyle = 'black';
+    ctx.fillStyle = 'Yellow';
     ctx.fillRect(start, 50, 10, 500);
     //draw finish line
     ctx.fillRect(finish, 50, 10, 500);
@@ -163,7 +140,7 @@ function drawFuelBar() {
     var currentBarWidth = fuelBarWidth * (fuel / startFuel);
     ctx.fillStyle = 'Black'
     ctx.fillRect(start, 30, fuelBarWidth, 10)
-    ctx.font = "25px Arial";
+    ctx.font = "25px Verdana";
     ctx.fillText("Fuel", start, 25)
     if (fuel > 0) {
         ctx.fillStyle = "green";
@@ -176,15 +153,15 @@ function drawResults() {
     if (carPos + 40 > finish) {
         ctx.save();
         ctx.fillStyle = 'black';
-        ctx.font = '25px Arial';
+        ctx.font = '25px Verdana';
         ctx.textAlign = 'center';
-        ctx.fillText("You made it to the finish. Tou Win!", canvas.width / 2, canvas.height / 2)
+        ctx.fillText("You made it to the finish. you Win!", canvas.width / 2, canvas.height / 2)
         ctx.restore();
     }
     else {
         ctx.save();
         ctx.fillStyle = 'black';
-        ctx.font = '25px Arial';
+        ctx.font = '25px Verdana';
         ctx.textAlign = 'center';
         ctx.fillText("You ran out of fuel. You Lose!", canvas.width / 2, canvas.height / 2)
         ctx.restore();
@@ -193,3 +170,21 @@ function drawResults() {
  function restartGame(){
     location.reload();
  }
+ function drawStartTimer(){
+    if(seconds > 0){
+        ctx.save();
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText(seconds, canvas.width/2, canvas.height/2);
+        ctx.restore();
+    }else{
+        ctx.save();
+        ctx.fillStyle = "black";
+        ctx.font = "30px Arial";
+        ctx.textAlign = "center";
+        ctx.fillText("GO!", canvas.width/2, canvas.height/2);
+        ctx.restore();
+    }
+
+}
