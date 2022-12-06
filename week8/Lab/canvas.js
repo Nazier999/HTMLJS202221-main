@@ -23,7 +23,7 @@ var road = new Image();
 
 //terrain and car src
 van.src = "images/Van.png"
-road.src = "images/DesertRoad.jpg"
+road.src = "images/DesertRoad.jpeg"
 
 //addEventListener
 document.addEventListener('keydown', pressSpace)
