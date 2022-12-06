@@ -31,7 +31,7 @@ road.src = "images/DesertRoad.jpeg"
 //car.src = "images/Car.png";
 
 //car.onload = function(){
-  //  main();
+//  main();
 //}
 //var carWidth = 50;
 
@@ -43,6 +43,8 @@ document.addEventListener('keydown', pressSpace)
 function pressSpace(e) {
     if (e.keyCode == 32 && gameOver) {
         gameOver = false;
+        console.log("Press Space");
+        main();
     }
     if (fuel <= 0) {
         restartGame();
@@ -56,7 +58,7 @@ function main() {
     //clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-   
+
 
     if (gameOver) {
         console.log("working");
@@ -70,15 +72,15 @@ function main() {
     }
 
     else {
-        if(!gameOver && seconds > 0){
+        if (!gameOver && seconds > 0) {
             runStartTimer();
             drawStartTimer();
-        }else{
-        //update the car pos
-        if (fuel > 0) {
-            carPos += speed;
-            //healthbar
-            fuel -= speed;
+        } else {
+            //update the car pos
+            if (fuel > 0) {
+                carPos += speed;
+                //healthbar
+                fuel -= speed;
             }
         }
         ctx.drawImage(road, 0, 0, 1024, 768);
@@ -90,25 +92,26 @@ function main() {
         drawFuelBar();
 
 
-       
-        
+
+
         if (fuel <= 0 || carPos + 40 > finish) {
 
-        if (fuel <= 0 || carPos + carWidth > finish) {
+            if (fuel <= 0 || carPos + carWidth > finish) {
 
-            drawResults();
+                drawResults();
+
+            }
+            ctx.drawImage(van, carPos, 720, 80, 40);
 
         }
-        ctx.drawImage(van,carPos, 720, 80, 40);    
-       
+        //make bacground image
+
+
+        //refresh main function 
+
+        timer = requestAnimationFrame(main)
+
     }
-//make bacground image
-
-
-    //refresh main function 
-
-    timer = requestAnimationFrame(main)
-
 }
 
 function drawStartFinishLines() {
@@ -126,38 +129,38 @@ function drawCar() {
 //utility function 
 function randomNumber(high, low) {
     return Math.round(Math.random() * (high - low) + low);
-    
+
 }
-function runStartTimer(){
+function runStartTimer() {
     frames -= 1;
-    if(frames < 0){
+    if (frames < 0) {
         frames = fps
-        seconds -=1;
+        seconds -= 1;
     }
 }
 
-function drawStartTimer(){
-    if(seconds > 0){
+function drawStartTimer() {
+    if (seconds > 0) {
         ctx.save();
         ctx.fillStyle = 'black';
         ctx.font = '30px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText(seconds, canvas.width/2, canvas.height/2)
+        ctx.fillText(seconds, canvas.width / 2, canvas.height / 2)
         ctx.restore();
-    }else{
+    } else {
         ctx.save();
         ctx.fillStyle = 'black';
         ctx.font = '30px Arial';
         ctx.textAlign = 'center';
-        ctx.fillText(seconds, canvas.width/2, canvas.height/2)
+        ctx.fillText(seconds, canvas.width / 2, canvas.height / 2)
         ctx.restore();
     }
-        ctx.save();
-        ctx.fillStyle = 'black';
-        ctx.font = '30px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText("GO", canvas.width/2, canvas.height/2)
-        ctx.restore();
+    ctx.save();
+    ctx.fillStyle = 'black';
+    ctx.font = '30px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText("GO", canvas.width / 2, canvas.height / 2)
+    ctx.restore();
 }
 
 function drawStartFinsihLines() {
@@ -171,11 +174,11 @@ function drawStartFinsihLines() {
 function drawCar() {
     //ctx.fillStyle = 'red';
 
-   // ctx.fillRect(carPos, canvas.height / 2, 40, 20);
+    // ctx.fillRect(carPos, canvas.height / 2, 40, 20);
 
-    //ctx.fillRect(carPos, canvas.height / 2, 40, 20);
-    ctx.drawImage(car, carPos, canvas.height/2, 50, 20);
-}
+    ctx.fillRect(carPos, canvas.height / 2, 40, 20);
+    ctx.drawImage(van, carPos, canvas.height / 2, 50, 20);
+ }
 
 
 function drawFuelBar() {
@@ -210,7 +213,6 @@ function drawResults() {
         ctx.restore();
     }
 }
- function restartGame(){
+function restartGame() {
     location.reload();
- }
 }
