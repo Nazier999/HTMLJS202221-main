@@ -24,16 +24,16 @@ var road = new Image();
 
 //terrain and car src
 van.src = "images/Van.png"
-road.src = "images/DesertRoad.jpg"
+road.src = "images/DesertRoad.jpeg"
 
 //car sprite
-var car= new Image();
-car.src = "images/Car.png";
+//var car= new Image();
+//car.src = "images/Car.png";
 
-car.onload = function(){
-    main();
-}
-var carWidth = 50;
+//car.onload = function(){
+  //  main();
+//}
+//var carWidth = 50;
 
 
 //addEventListener
@@ -213,3 +213,4 @@ function drawResults() {
  function restartGame(){
     location.reload();
  }
+}
