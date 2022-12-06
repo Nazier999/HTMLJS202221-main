@@ -17,6 +17,7 @@ var seconds = 3;
 var fps = 60;
 var frames = fps;
 
+<<<<<<< HEAD:week8/canvas.js
 //terrain and car
 var van = new Image();
 var road = new Image();
@@ -24,6 +25,16 @@ var road = new Image();
 //terrain and car src
 van.src = "images/Van.png"
 road.src = "images/DesertRoad.jpg"
+=======
+//car sprite
+var car= new Image();
+car.src = "images/Car.png";
+
+car.onload = function(){
+    main();
+}
+var carWidth = 50;
+>>>>>>> 9a69eb7 (stuff):week8/Lab/canvas.js
 
 //addEventListener
 document.addEventListener('keydown', pressSpace)
@@ -78,9 +89,13 @@ function main() {
 
         drawFuelBar();
 
+<<<<<<< HEAD:week8/canvas.js
        
         
         if (fuel <= 0 || carPos + 40 > finish) {
+=======
+        if (fuel <= 0 || carPos + carWidth > finish) {
+>>>>>>> 9a69eb7 (stuff):week8/Lab/canvas.js
             drawResults();
 
         }
@@ -111,6 +126,7 @@ function drawCar() {
 //utility function 
 function randomNumber(high, low) {
     return Math.round(Math.random() * (high - low) + low);
+    
 }
 function runStartTimer(){
     frames -= 1;
@@ -154,7 +170,12 @@ function drawStartFinsihLines() {
 
 function drawCar() {
     //ctx.fillStyle = 'red';
+<<<<<<< HEAD:week8/canvas.js
    // ctx.fillRect(carPos, canvas.height / 2, 40, 20);
+=======
+    //ctx.fillRect(carPos, canvas.height / 2, 40, 20);
+    ctx.drawImage(car, carPos, canvas.height/2, 50, 20);
+>>>>>>> 9a69eb7 (stuff):week8/Lab/canvas.js
 }
 
 
