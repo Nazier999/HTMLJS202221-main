@@ -5,13 +5,9 @@ var gameOver = true;
 var gameState = []
 var currentState = 0;
 
-//link a css file
 //put canvas in a div with a id of container
 //add a header and a footer within the container Div
 //center the content for the page
-//add a H1 tp the header with the title of the game
-//use a custom font from google fonts
-//add a copyright symbol at the footer
 //add a background image  to the body of the index.html 
 // make a new background color to the canvas
 // make the sprites for asteroids and ship
@@ -20,7 +16,15 @@ var currentState = 0;
 //make game scroll horizontally 
 //create a invincibility power up
 
+//make ship asteroids and power up picture
+var pShip = new Image();
+var pAsteroids = new Image();
+var PowerUp = new Image();
 
+//make image src
+pShip.src = 'images/Ship.png'
+pAsteroids.src = 'images/Asteroid.png'
+PowerUp.src = 'images.PowerUp.png'
 
 //score variables
 var score = 0;

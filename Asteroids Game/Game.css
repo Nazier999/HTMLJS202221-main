@@ -1,0 +1,29 @@
+@font-face {
+    font-family: Pixel;
+    src: url(fonts/VT323-Regular.ttf);
+}
+html, body{
+    display: flex;
+    justify-content: center;
+    background-color: #4c175a;
+    background-image: url(images/Background.jpg);
+}
+
+canvas{
+    background-color: darkslategray;
+    border: 1px solid blue;
+}
+
+p{
+    color: whitesmoke;
+    font-family: Pixel;
+}
+
+h1{
+    color: whitesmoke;
+    font-family: 'Pixel';
+    justify-content: center;
+}
+header{
+    text-align: center;
+}
