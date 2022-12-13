@@ -5,12 +5,6 @@ var gameOver = true;
 var gameState = []
 var currentState = 0;
 
-//put canvas in a div with a id of container
-//add a header and a footer within the container Div
-//center the content for the page
-//add a background image  to the body of the index.html 
-// make a new background color to the canvas
-// make the sprites for asteroids and ship
 // make a menu screen in photoshop
 // make a end screen in photoshop and adjust the text to fit it
 //make game scroll horizontally 
@@ -24,7 +18,7 @@ var PowerUp = new Image();
 //make image src
 pShip.src = 'images/Ship.png'
 pAsteroids.src = 'images/Asteroid.png'
-PowerUp.src = 'images.PowerUp.png'
+PowerUp.src = 'images/PowerUp.png'
 
 //score variables
 var score = 0;
@@ -50,6 +44,7 @@ function PlayerShip() {
         ctx.translate(this.x, this.y);
         ctx.fillStyle = "red";
         ctx.beginPath();
+        ctx.drawImage(pShip, -40, -45, 80, 106);
         ctx.moveTo(0, -10);
         ctx.lineTo(10, 10);
         ctx.lineTo(-10, 10);
@@ -142,7 +137,7 @@ function pressKeyDown(e) {
                 score = 0;
                 gameStart();
                 main();
-            } else{
+            } else {
                 gameStart();
                 //from mainmenu
                 gameOver = false;
@@ -206,14 +201,18 @@ var asteroids = [];
 function Asteroid() {
     this.radius = randomRange(15, 2);
     this.x = randomRange(canvas.width - this.radius, this.radius);
-    this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height;;
-    this.vy = randomRange(10, 5);
+    this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height;
+    //this.width = randomRange(canvas.width - this.radius, this.radius);
+    //this.height = randomRange(canvas.height - this.radius, this.radius) - canvas.height;
+    this.vy = randomRange(10,5);
+    //this.vx = randomRange(10,5);
     this.color = "white";
 
     this.drawAsteroid = function () {
         //commands to draw Asteroids
         ctx.save();
         ctx.beginPath();
+        //ctx.drawImage(pAsteroids, this.x, this.y, this.radius, this.radius)
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true)
         ctx.closePath();
@@ -340,33 +339,33 @@ function scoreTimer() {
 }
 //game over menu
 gameState[2] = function () {
-    ctx.clearRect(0,0, canvas.width,canvas.height);
-    if(score > highscore){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (score > highscore) {
         //new high score
-   highscore = score;
-    ctx.save();
-    ctx.font = "30px Arial";
-    ctx.fillStyle = "white";
-    ctx.textAlignt = "center";
-    ctx.fillText("You Suck! Your Score Was: " + score.toString(), canvas.width / 2, canvas.height / 2 - 60);
-    ctx.fillText("Your New Highscore is: " + highscore.toString(), canvas.width / 2, canvas.height / 2 - 30);
-    ctx.fillText("New Record: " + highscore.toString(), canvas.width / 2, canvas.height / 2);
-    ctx.font = "15px arial";
-    ctx.fillText("press Space to Play Again", canvas.width / 2, canvas.height / 2 + 20);
-    ctx.restore();
-}else{
-    //reglar high score
-    highscore = score;
-    ctx.save();
-    ctx.font = "30px Arial";
-    ctx.fillStyle = "white";
-    ctx.textAlignt = "center";
-    ctx.fillText("You Suck! Your Score Was: " + score.toString(), canvas.width / 2, canvas.height / 2 - 60);
-    ctx.fillText("Your Highscore is: " + highscore.toString(), canvas.width / 2, canvas.height / 2 - 30);
-    ctx.font = "15px arial";
-    ctx.fillText("press Space to Play Again", canvas.width / 2, canvas.height / 2 + 20);
-    ctx.restore();
-}
+        highscore = score;
+        ctx.save();
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.textAlignt = "center";
+        ctx.fillText("You Suck! Your Score Was: " + score.toString(), canvas.width / 2, canvas.height / 2 - 60);
+        ctx.fillText("Your New Highscore is: " + highscore.toString(), canvas.width / 2, canvas.height / 2 - 30);
+        ctx.fillText("New Record: " + highscore.toString(), canvas.width / 2, canvas.height / 2);
+        ctx.font = "15px arial";
+        ctx.fillText("press Space to Play Again", canvas.width / 2, canvas.height / 2 + 20);
+        ctx.restore();
+    } else {
+        //reglar high score
+        highscore = score;
+        ctx.save();
+        ctx.font = "30px Arial";
+        ctx.fillStyle = "white";
+        ctx.textAlignt = "center";
+        ctx.fillText("You Suck! Your Score Was: " + score.toString(), canvas.width / 2, canvas.height / 2 - 60);
+        ctx.fillText("Your Highscore is: " + highscore.toString(), canvas.width / 2, canvas.height / 2 - 30);
+        ctx.font = "15px arial";
+        ctx.fillText("press Space to Play Again", canvas.width / 2, canvas.height / 2 + 20);
+        ctx.restore();
+    }
 }
 //main gameplay loop
 function main() {
