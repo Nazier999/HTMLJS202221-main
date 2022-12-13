@@ -18,7 +18,7 @@ var radius = 50;
 var speedX = 5;
 var speedY = 5;
 
-alert('hello this is the alert');
+//alert('hello this is the alert');
 //Array datatype
 //var rps = ["Rock", "Paper", "Scissors"];
 //var rps= new Array;()
@@ -29,15 +29,27 @@ rps[2] = "Scissors";
 
 
 document.getElementById("rock").addEventListener("click", function (e) {
-    alert('you clicked ' + rps[0]);
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText("you clicked " + rps[0], canvas.width / 2, 200);
     playGame(rps[0]);
 });
 document.getElementById("paper").addEventListener("click", function (e) {
-    alert('you clicked ' + rps[1])
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText("you clicked " + rps[1], canvas.width / 2, 200);
     playGame(rps[1]);
 });
 document.getElementById("scissors").addEventListener("click", function (e) {
-    alert('you clicked ' + rps[2])
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "red";
+    ctx.textAlign = "center";
+    ctx.fillText("you clicked " + rps[2], canvas.width / 2, 200);
     playGame(rps[2]);
 });
 function main() {
@@ -51,42 +63,78 @@ ctx.drawImage(bg,0,0,canvas.width,canvas.height)
 function playGame(playerChoice) {
     var cpuChoice = Math.floor(Math.random() * 2.99);
     console.log(cpuChoice, playerChoice)
-
+    
     switch (playerChoice) {
         case "Rock":
             if (cpuChoice == 0) {
                 //itsa tie
-                alert("CPU chose Rock. It's a tie!")
+                
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose rock, it's a tie!", canvas.width / 2, 400);
             }
             else if (cpuChoice == 1) {
-                alert("CPU cose paper. CPU wins!");
+              
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose paper, you lose!", canvas.width / 2, 400);
             }
-            else {
-                alert("CPU chose Scissors. You win!")
+            else {  
+               
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose scissors, you win!", canvas.width / 2, 400);
             }
             break;
         case "Paper":
             if (cpuChoice == 0) {
                 //itsa tie
-                alert("CPU chose Rock. You Win!")
+                ctx.clearRect
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose rock, you win!", canvas.width / 2, 400);
             }
             else if (cpuChoice == 1) {
-                alert("CPU cose paper. It's a tie!");
+                
+               ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose scissors, you lose!", canvas.width / 2, 400);
             }
             else {
-                alert("CPU chose Scissors. You Lose!")
+                
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose scissors, you lose!", canvas.width / 2, 400);
             }
             break;
         case "Scissors":
             if (cpuChoice == 0) {
                 //itsa tie
-                alert("CPU chose Rock. You Lose!")
+                
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose rock, you lose!", canvas.width / 2, 400);
             }
             else if (cpuChoice == 1) {
-                alert("CPU cose paper. It's a Win!");
+                
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose paper you win!", canvas.width / 2, 400);
             }
             else {
-                alert("CPU chose Scissors. It's a Tie!")
+                
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "red";
+                ctx.textAlign = "center";
+                ctx.fillText("CPU chose scissors, its a tie!", canvas.width / 2, 400);
             }
             break;
 
