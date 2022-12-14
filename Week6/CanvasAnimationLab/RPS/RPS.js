@@ -9,7 +9,7 @@ var ctx = canvas.getContext("2d");
 
 ctx.font = '40px Arial';
 ctx.fillStyle = "purple";
-ctx.strokeStyle = 'yellow'
+ctx.strokeStyle = 'yellow';
 ctx.fillText("Welcome to our RPS game!", 200, 280);
 ctx.strokeText("Welcome to our RPS game!", 200,280)
 var x = 300;
