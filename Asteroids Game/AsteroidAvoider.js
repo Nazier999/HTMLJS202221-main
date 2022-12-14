@@ -4,23 +4,28 @@ var timer = requestAnimationFrame(main);
 var gameOver = true;
 var gameState = []
 var currentState = 0;
+var pUpItem = new PowerUp();
+var powerupActive = true;
 
 //make game scroll horizontally 
 //create a invincibility power up
 
-//make ship asteroids and power up picture
 var pShip = new Image();
 var pAsteroids = new Image();
-var PowerUp = new Image();
+var PowerUpSprite = new Image();
 var HomeScreen = new Image();
 var GameOverScreen = new Image();
 
 //make image src
 pShip.src = 'images/Ship.png'
 pAsteroids.src = 'images/Asteroid.png'
-PowerUp.src = 'images/PowerUp.png'
+PowerUpSprite.src = 'images/PowerUp.png'
 HomeScreen.src = 'images/Homescreen.png'
 GameOverScreen.src = 'images/Defeat.png'
+
+HomeScreen.onload = function(){
+    main();
+}
 
 //score variables
 var score = 0;
@@ -125,7 +130,7 @@ function pressKeyDown(e) {
             //ship go right 68 is "d"
             ship.right = true
         }
-        if (e.keycode == 40) {
+        if (e.keyCode == 40) {
             //ship goes down
             ship.down = true
         }
@@ -157,7 +162,7 @@ function pressKeyDown(e) {
 
 function pressKeyUp(e) {
     if (!gameOver) {
-
+    
 
         if (e.keyCode == 87) {
             //ship go up 87 is "w"
@@ -191,7 +196,7 @@ function pressKeyUp(e) {
             //ship go right 68 is "d"
             ship.right = false
         }
-        if (e.keycode == 40) {
+        if (e.keyCode == 40) {
             //ship goes down
             ship.down = false
         }
@@ -205,8 +210,8 @@ var asteroids = [];
 function Asteroid() {
     //they origional values for this.radius were 15,2
     this.radius = randomRange(15, 8);
-    this.x = randomRange(canvas.width - this.radius, this.radius / 3);
-    this.y = randomRange(canvas.height - this.radius, this.radius / 3) - canvas.height;
+    this.x = randomRange(canvas.width - this.radius, this.radius) + canvas.width; 
+    this.y = randomRange(canvas.height - this.radius, this.radius);
     //this.width = randomRange();
     //this.height = randomRange();
     this.vy = randomRange(10, 5);
@@ -232,18 +237,18 @@ for (var i = 0; i < numAsteroids; i++) {
 }
 
 //create powerup
-// function powerUp() {
-//     this.radius = randomRange(15, 8);
-//     this.x = randomRange(canvas.width - this.radius, this.radius / 3);
-//     this.y = randomRange(canvas.height - this.radius, this.radius / 3) - canvas.height;
-//     this.vy = randomRange(10, 5);
+  function PowerUp() {
+      this.radius = randomRange(30, 16);
+      this.x = randomRange(canvas.width - this.radius, this.radius / 3);
+      this.y = randomRange(canvas.height - this.radius, this.radius / 3); - canvas.height;
+      this.vx = randomRange(10, 5);
 
-//     this.drawPowerUp = function (){
-//         ctx.save
-//         ctx.drawImage(PowerUp ,this.x - this.radius, this.y - this.radius, this.radius + this.radius, this.radius + this.radius);
-//         ctx.restore
-//     }
-// }
+      this.drawPowerUp = function (){
+          ctx.save
+          ctx.drawImage(PowerUpSprite ,this.x - this.radius, this.y - this.radius, this.radius + this.radius, this.radius + this.radius);
+          ctx.restore
+      }
+  }
 
 
 
@@ -308,18 +313,28 @@ gameState[1] = function () {
         }
 
         if (asteroids[i].y > canvas.height + asteroids[i].radius) {
-            asteroids[i].x = randomRange(canvas.width - asteroids[i].radius, asteroids[i].radius)
-            asteroids[i].y = randomRange(canvas.height - asteroids[i].radius, asteroids[i].radius) - canvas.height;
+            asteroids[i].x = randomRange(canvas.width - asteroids[i].radius, asteroids[i].radius) + canvas.width;
+            asteroids[i].y = randomRange(canvas.height - asteroids[i].radius, asteroids[i].radius) ;
 
         }
         //draw asteroids
-        asteroids[i].y += asteroids[i].vy;
+        asteroids[i].x -= asteroids[i].vx;
         asteroids[i].drawAsteroid();
 
 
     }
 
-
+    //draw powerup here
+    if(powerupActive){
+        pUpItem.x -= pUpItem.vx;
+        pUpItem.drawPowerUp();
+    }
+    
+    if(pUpItem.x < -10){
+        resetPowerUp();
+        powerupActive = false;
+    }
+    console.log(powerupActive, pUpItem.x, pUpItem.y);
     //draw ship
     ship.moveShip();
     ship.drawShip();
@@ -358,6 +373,8 @@ function scoreTimer() {
             console.log(numAsteroids);
         }
 
+       
+
         setTimeout(scoreTimer, 1000);
     }
 }
@@ -386,7 +403,7 @@ gameState[2] = function () {
         ctx.font = "30px Arial";
         ctx.fillStyle = "white";
         ctx.textAlignt = "center";
-        ctx.fillText("You Suck! Your Score Was: " + score.toString(), 350,650);
+        ctx.fillText("You Lose! Your Score Was: " + score.toString(), 350,650);
         ctx.fillText("Your Highscore is: " + highscore.toString(), 350,700);
         ctx.font = "15px arial";
         ctx.fillText("press Space to Play Again", 350,720);
@@ -402,4 +419,14 @@ function main() {
     if (!gameOver) {
         timer = requestAnimationFrame(main);
     }
+}
+
+function resetPowerUp(){
+    pUpItem.x = randomRange(canvas.width - pUpItem.radius, pUpItem.radius / 3) + canvas.width;
+    pUpItem.y = randomRange(canvas.height - pUpItem.radius, pUpItem.radius / 3); 
+    setTimeout(startPowerUp, 5000)
+}
+
+function startPowerUp(){
+    powerupActive = true;
 }
