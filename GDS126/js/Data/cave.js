@@ -5,15 +5,15 @@ var caveData ={
 			[0,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,6,2],
 			[2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2],
 			[2,x,x,7,x,x,7,x,x,x,x,x,x,7,7,x,7,7,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,2],
-			[6,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,2],
 			[5,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,2],
+			[6,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,2],
 			[7,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,2],
 			[x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,2],
 			[x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x]
 			
 			
 		],
-		src:`images/bg2.png`,
+		src:`images/CaveSprites.png`,
 	},
 	states:
 	[		
@@ -21,13 +21,8 @@ var caveData ={
 				fps:5,
 				cycle:false,
 				frames:[
-					{width:64, height:64, startX:0, startY:0}
+					{width:64, height:64, startX:128, startY:0}
 				]
-			},
-			{
-				fps:1,
-				cycle:false,
-				frames:[{width:64, height:64, startX:64, startY:0}]
 			},
 			{
 				fps:1,
@@ -37,7 +32,12 @@ var caveData ={
 			{
 				fps:1,
 				cycle:false,
-				frames:[{width:64, height:64, startX:192, startY:0}]
+				frames:[{width:64, height:64, startX:256, startY:0}]
+			},
+			{
+				fps:1,
+				cycle:false,
+				frames:[{width:64, height:64, startX:64, startY:0}]
 			},
 			{
 				fps:1,
@@ -57,12 +57,12 @@ var caveData ={
 			{
 				fps:1,
 				cycle:false,
-				frames:[{width:64, height:64, startX:448, startY:0}]
+				frames:[{width:64, height:64, startX:576, startY:0}]
 			},
 			{
 				fps:1,
 				cycle:false,
-				frames:[{width:64, height:64, startX:512, startY:0}]
+				frames:[{width:64, height:64, startX:0, startY:0}]
 			}
 		]
 	}
@@ -77,7 +77,7 @@ var caveData ={
 			[3,8,8,8,8,3,3,3,3,3,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8],
 			[3,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8,8],
 			],
-			src:`images/bg2.png`,
+			src:`images/CaveSprites.png`,
 		},
 		states:caveData.states
 		}
@@ -96,7 +96,7 @@ var caveData ={
 					
 					
 				],
-				src:`images/bg2.png`,
+				src:`images/CaveSprites.png`,
 			},
 			states:caveData.states
 			
