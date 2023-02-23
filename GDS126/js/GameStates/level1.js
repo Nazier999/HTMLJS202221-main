@@ -274,7 +274,7 @@ gameStates[`level1`] = function()
 
 	//renders the midground
 	//bg.drawStaticImage([0,0]);
-	
+	bg.drawStaticImage([0,0]);
 	//alternate methd for rendering the repeating background
 	//rbg.render(`drawStaticImage`, [0,0])
 
@@ -289,7 +289,7 @@ gameStates[`level1`] = function()
 
 	//Renders sprites group
 	sprites.play().render(`drawSprite`);
-
+	
 	//renders player
 	wiz.play(function(){return}).drawSprite()
 	
@@ -314,5 +314,5 @@ gameStates[`level1`] = function()
 	//Renders front of cave
 	front.play().render(`drawSprite`);
 	
-	bg.drawStaticImage([0,0]);
+	
 }
