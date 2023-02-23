@@ -19,7 +19,7 @@ Properties:
 
 var playerData ={
 	info:{
-		src:`images/Isla.png`
+		src:`images/Isla2.png`
 	},
 	states:{
 		//The idle animation 
@@ -55,7 +55,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:256, height:256, startX:3100, startY:0}
+				{width:256, height:256, startX:3072, startY:0}
 			]
 		},
 		//The crouch animation 
@@ -78,7 +78,7 @@ var playerData ={
 			[
 				//{width:256, height:256, startX:1280, startY:0},
 				//{width:256, height:256, startX:1536, startY:0},
-				{width:319, height:259, startX:3358, startY:0}
+				{width:319, height:259, startX:3328, startY:0}
 			]
 		}
 	}
