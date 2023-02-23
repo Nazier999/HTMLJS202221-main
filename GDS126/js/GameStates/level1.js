@@ -67,7 +67,7 @@ sky.img.src = `images/sky.png`
 
 //repeating background
 var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
-rbg.img.src=`images/hills.png`
+rbg.img.src=`images/Mountains.png`
 
 //middleground
 var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canvas.height})
@@ -99,6 +99,7 @@ gameStates[`level1`] = function()
 	if(!keys[`W`] && !keys[`S`] && !keys[`D`] && !keys[`A`] && !keys[` `] && canShoot && wiz.canJump)
 	{
 		wiz.changeState(`idle`)
+		//wiz.width=256;
 	}
 	
 	
@@ -157,7 +158,7 @@ gameStates[`level1`] = function()
 			wiz.changeState(`attack`)
 			shotTimer = shotDelay
 			//console.log(`Boom`)
-
+			// wiz.width=319;
 			bullets[currentBullet].vx = 5*wiz.dir;
 			bullets[currentBullet].world = level;
 			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 96) ;
@@ -237,10 +238,10 @@ gameStates[`level1`] = function()
 	level.x -= offset.x;
 
 	//moves repeating background
-	rbg.x = level.x*.5;
+	rbg.x = level.x*.33;
 
 	//moves the middleground
-	bg.x = level.x*.75;
+	bg.x = level.x*.66;
 
 	//moves the clouds
 	//clouds.x = level.x*.25;
@@ -272,7 +273,7 @@ gameStates[`level1`] = function()
 	rbg.drawStaticImage([rbg.width,0]);
 
 	//renders the midground
-	bg.drawStaticImage([0,0]);
+	//bg.drawStaticImage([0,0]);
 	
 	//alternate methd for rendering the repeating background
 	//rbg.render(`drawStaticImage`, [0,0])
@@ -313,5 +314,5 @@ gameStates[`level1`] = function()
 	//Renders front of cave
 	front.play().render(`drawSprite`);
 	
-
+	bg.drawStaticImage([0,0]);
 }
