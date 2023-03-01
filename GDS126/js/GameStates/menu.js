@@ -8,7 +8,6 @@ startButton.width=200;
 startButton.hitBoxWidth=800
 console.log(startButton.collisionPoints.right)
 
-
 var menuBackground = new GameObject();
 menuBackground.img.src = "images/mrt.jpg"
 menuBackground.width=canvas.width
@@ -23,6 +22,7 @@ gameStates[`menu`] =function(){
 		{
 			//Changes to the game state
 			gameStates.changeState(`level1`)
+			sounds.play('Tantal',.5)
 		}
 
 		//Hover Effect Graffic
