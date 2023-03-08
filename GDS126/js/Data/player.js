@@ -80,36 +80,6 @@ var playerData ={
 				//{width:256, height:256, startX:1536, startY:0},
 				{width:319, height:259, startX:3328, startY:0}
 			]
-		},
-		bullets:
-		{
-			fps: 2,
-			cycle:false,
-
-			frames:
-			[
-				{width:256, height:256, startX: 3685, startY:0}
-			]
-		},
-		buttonIdle:
-		{
-			fps: 1,
-			cycle: false,
-
-			frames:
-			[
-				{width:367, height: 258, statyX:4160, startY: 2}
-			]
-		},
-		buttonHover:
-		{
-			fps: 1,
-			cycle: false,
-
-			frames:
-			[
-				{width:367, height: 258, statyX:4527, startY: 2}
-			]
-		}	
+		}
 	}	
 }

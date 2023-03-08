@@ -3,7 +3,9 @@ This file contains all of the code for the Main Menu
 ----------------------------------*/
 
 var startButton = new GameObject({width:200});
-//startButton.img.src="images/mrt.jpg"
+var startButton2 = new GameObject({width:200});
+//startButton.img.src="images/button.png"
+//startButton2.img.src="images/button2.png"
 startButton.width=200;
 startButton.hitBoxWidth=800
 console.log(startButton.collisionPoints.right)
@@ -27,12 +29,15 @@ gameStates[`menu`] =function(){
 
 		//Hover Effect Graffic
 		startButton.color = `yellow`
-		wiz.changeState(`buttonHover`)
+		//startButton.drawStaticImage(button2);
+		//wiz.changeState(`buttonHover`)
 	}
 	else
 	{
 		//Default Button Graphic
 		startButton.color = `red`
+
+		//startButton.drawStaticImage(button);
 	}
 	
 	menuBackground.drawStaticImage();
