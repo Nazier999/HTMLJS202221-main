@@ -27,6 +27,7 @@ gameStates[`menu`] =function(){
 
 		//Hover Effect Graffic
 		startButton.color = `yellow`
+		wiz.changeState(`buttonHover`)
 	}
 	else
 	{
