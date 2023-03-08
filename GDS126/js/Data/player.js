@@ -19,7 +19,7 @@ Properties:
 
 var playerData ={
 	info:{
-		src:`images/Isla2.png`
+		src:`images/Isla3.png`
 	},
 	states:{
 		//The idle animation 
@@ -79,6 +79,16 @@ var playerData ={
 				//{width:256, height:256, startX:1280, startY:0},
 				//{width:256, height:256, startX:1536, startY:0},
 				{width:319, height:259, startX:3328, startY:0}
+			]
+		},
+		bullets:
+		{
+			fps: 2,
+			cycle:false,
+
+			frames:
+			[
+				{width:256, height:256, startX: 3685, startY:0}
 			]
 		}
 	}
