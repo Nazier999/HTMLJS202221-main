@@ -35,7 +35,7 @@ gameStates[`menu`] =function(){
 		//Default Button Graphic
 		//startButton.color = `red`
 		startButton.changeState('idle')
-		canvas.style.cursor='auto';
+		canvas.style.cursor='pointer';
 	}
 	
 	menuBackground.drawStaticImage();
