@@ -10,11 +10,12 @@ var wiz = new GameObject({width:128, height:128, spriteData:playerData}).makeSpr
 wiz.force=1
 
 //The ground
-var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:64,y:canvas.height-32, color:"green"})
+var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:64,y:canvas.height-32})
 ground.img.src=`images/ground.png`
 
 //A platform
-var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green"})
+var plat = new GameObject({width:256, height:64,y:canvas.height-200})
+plat.img.src="images/firepit_.png"
 
 //A level object when it is moved other objects move with it.
 var level = new GameObject({x:0,y:0});
@@ -42,7 +43,7 @@ g1.add([ground,leftBorder, caveHit.grid])
 
 //Used to draw the rectangles
 var rects = new Group();
-rects.add([ground,plat])
+rects.add([ground])
 
 //used to render the sprites
 var sprites = new Group();
@@ -240,10 +241,10 @@ gameStates[`level1`] = function()
 	level.x -= offset.x;
 
 	//moves repeating background
-	rbg.x = level.x*.33;
+	rbg.x -= offset.x*.33;
 
 	//moves the middleground
-	bg.x = level.x*.66;
+	bg.x -= offset.x*.66;
 
 	//moves the clouds
 	//clouds.x = level.x*.25;
@@ -259,7 +260,8 @@ gameStates[`level1`] = function()
 	var groundPattern = context.createPattern(ground.img, `repeat`);
 	//Applies pattern to ground and platform
 	ground.color = groundPattern
-	plat.color = groundPattern
+	//plat.color = groundPattern
+	//plat.drawStaticImage();
 
 	//Sets up pattern for the sky
 	var skyPattern = context.createPattern(sky.img, `repeat`);
@@ -282,7 +284,7 @@ gameStates[`level1`] = function()
 
 	//renders the objects in the rect group
 	rects.render(`drawRect`, [0,0,100,100])
-	
+	plat.drawStaticImage([-plat.width/2,-plat.height-30,256,256]);
 	/*----Used for debugging----*/
 	/*context.beginPath()
 	context.moveTo(0,wiz.bottom.y)

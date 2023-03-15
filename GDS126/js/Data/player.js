@@ -43,7 +43,13 @@ var playerData ={
 			[
 				{width:256, height:256, startX:1536, startY:0},
 				{width:256, height:256, startX:1792, startY:0},
+				{width:256, height:256, startX:1792, startY:0},
+				{width:256, height:256, startX:1792, startY:0},
 				{width:256, height:256, startX:2048, startY:0},
+				{width:256, height:256, startX:2048, startY:0},
+				{width:256, height:256, startX:2048, startY:0},
+				{width:256, height:256, startX:2304, startY:0},
+				{width:256, height:256, startX:2304, startY:0},
 				{width:256, height:256, startX:2304, startY:0},
 				{width:256, height:256, startX:2560, startY:0}
 			]
