@@ -16,6 +16,7 @@ var player;
 	player.width=100
 	player.height=100
     player.vx = 5
+    player.vy = 5
 	
     /*
     ball.x=canvas.width;
