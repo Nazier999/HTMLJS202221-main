@@ -15,8 +15,15 @@ var player;
 	player = new Player();
 	player.width=100
 	player.height=100
+    player.vx = 5
 	
-	//Set the Animation Timer
+    /*
+    ball.x=canvas.width;
+    ball.x-= //Some number of pixels
+    ball.vx = -ball.vx; 
+    */
+	
+    //Set the Animation Timer
 	timer = setInterval(animate, interval);
 
 function animate()
@@ -25,8 +32,10 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	//Move the Player
-	player.x += 8;
-	
+	//player.x += 10;
+	//player.vx -= 800;
+    //player.vx = -player.vx;
+
 	//Update the Screen
 	player.draw();
 
