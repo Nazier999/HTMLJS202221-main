@@ -15,6 +15,8 @@
    player1.vy;
    ball.vx = 5
    ball.vy = 5
+   ball.width = 30
+   ball.height = 30
 
     function animate()
     {
