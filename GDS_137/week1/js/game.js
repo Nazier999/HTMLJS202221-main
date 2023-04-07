@@ -96,6 +96,11 @@
             ball.color="green"
 		console.log("colliding");
 	}
+
+    if(ball.x <= 0)
+    {
+        ball.x = canvas.width/2, canvas.height/2;
+    }
         //context.clearRect(0,0,canvas.width, canvas.height);	
     }
     
