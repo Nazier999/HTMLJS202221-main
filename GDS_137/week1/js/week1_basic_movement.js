@@ -6,13 +6,14 @@ var timer;
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
 var player;
+var player1 = new GameObject();
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new Player();
+	player = new GameObject();
 	player.width=100
 	player.height=100
     player.vx = 5
@@ -39,6 +40,7 @@ function animate()
 
 	//Update the Screen
 	player.draw();
+    player1.drawRect();
 
 	//Move the Player
     player.move();
