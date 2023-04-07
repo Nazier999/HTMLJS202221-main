@@ -40,8 +40,7 @@ function animate()
 
 	//Update the Screen
 	player.draw();
-    player1.drawRect();
-
+    
 	//Move the Player
     player.move();
 
