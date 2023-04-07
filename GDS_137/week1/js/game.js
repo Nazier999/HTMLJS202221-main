@@ -11,6 +11,7 @@
    player1.x = 64;
    player1.y = canvas.height / 2;
    player1.color = "black";
+   player1.vy
 
     function animate()
     {
@@ -28,6 +29,15 @@
 	        console.log("Moving Up");
 	    	player1.y += -2;
 	    }
+        if(player1.y < player1.height/2){
+            player1.y = player1.height/2
+            player1.vy = -player1.vy;
+        }
+    
+        if(player1.y > canvas.height - player1.height/2){
+            player1.y = canvas.height - player1.height/2
+            player1.vy = -player1.vy;
+        }
     }
     
 
