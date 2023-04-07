@@ -13,8 +13,8 @@
    player1.y = canvas.height / 2;
    player1.color = "black";
    player1.vy;
-   ball.vx = 5
-   ball.vy = 5
+   ball.vx = -5
+   ball.vy = 0
    ball.width = 30
    ball.height = 30
 
@@ -101,7 +101,32 @@
     {
         ball.x = canvas.width/2, canvas.height/2;
     }
-        //context.clearRect(0,0,canvas.width, canvas.height);	
+ /*   if(collision occurs)
+{
+     ball hits top
+     if(ball.y < paddle.y - one sixth of the paddle's height)
+     {
+       ball.vx = positive speed;
+       ball.vy = negative speed;
+     }
+}*/
+
+    if(ball.hitTestObject(player1))
+    {
+        //ball hits top
+        if(ball.y < player1.y - player1.height/6)
+        {
+            ball.vx = 5;
+            ball.vy = -5;
+        }
+        if(ball.y > player1.y + player1.height/6)
+        {
+            ball.vx = 5;
+            ball.vy = 5;
+        }
     }
+
+        //context.clearRect(0,0,canvas.width, canvas.height);	
+     }
     
 
