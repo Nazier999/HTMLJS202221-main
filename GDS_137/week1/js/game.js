@@ -43,6 +43,16 @@
         player1.drawRect();
         player2.drawRect();
         
+         //net
+         context.save();
+         context.strokeStyle = 'grey';
+         context.beginPath();
+         context.moveTo(canvas.width/2, canvas.height);
+         context.lineTo(canvas.width/2, -canvas.height);
+         context.closePath();
+         context.lineWidth = 20; 
+         context.stroke();
+         context.restore();
         
         //move player1
          //Update the Screen
@@ -153,14 +163,16 @@
     {
         ball.x = canvas.width/2, canvas.height/2;
         context.fillStyle = "black"
-        p1wins = p1wins + 1;
+        
+        p2wins = p2wins + 1;
     }
 
     if(ball.x >= canvas.width)
     {
         ball.x = canvas.width/2, canvas.height/2;
+        p1wins = p1wins + 1;
         //context.fillStyle = "black"
-        p2wins = p2wins + 1;
+        
         //context.fillText(p1wins, ' - ', p2wins, canvas.width / 2, canvas.height / 2);
     }
  /*   if(collision occurs)
@@ -205,10 +217,12 @@
 
 
         context.font = "20px Georgia";
-        context.fillText("Pong", canvas.width/2, 50);
+        context.fillText("Pong", canvas.width/2 - 20, 20);
         context.fillStyle = 'black';
         context.textalign = 'center';
-        context.fillText(p1wins + ' - ' + p2wins, canvas.width / 2, 80);
+        context.fillText(p1wins + ' - ' + p2wins, canvas.width/2 - 20, 40);
+
+       
 
         //context.clearRect(0,0,canvas.width, canvas.height);	
      }
