@@ -75,7 +75,7 @@ function release(e)
 	}
 	if(e.keyCode == 87)
 	{
-		d = false;
+		w = false;
 	}
 	if(e.keyCode == 83)
 	{
