@@ -32,7 +32,7 @@
    ball.width = 30
    ball.height = 30
    ball.color = "black";
-
+   var img=document.getElementById("sans");
 
  
 
@@ -131,7 +131,7 @@
         }
 
         //draw ball
-        ball.drawCircle();
+       // ball.drawCircle();
          //Move the Player
          ball.move();
 
@@ -222,8 +222,9 @@
         context.textalign = 'center';
         context.fillText(p1wins + ' - ' + p2wins, canvas.width/2 - 20, 40);
 
-       
+        context.drawImage(sans, ball.x - 15, ball.y - 15, ball.width, ball.height);
 
+        //ball.drawCircle();
         //context.clearRect(0,0,canvas.width, canvas.height);	
      }
     
