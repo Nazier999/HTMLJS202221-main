@@ -8,6 +8,13 @@
     var player1 = new GameObject();
     var player2 = new GameObject();
     var ball = new GameObject();
+
+    var p1Wins;
+    var p2Wins;
+
+    p1wins = 0;
+    p2wins = 0;
+
    player1.width = 10;
    player1.height = 200;
    player1.x = 0;
@@ -18,12 +25,16 @@
    player2.height = 200;
    player2.x = canvas.width;
    player2.y = canvas.height / 2;
-   player2.color = "red";
+   player2.color = "black";
    player2.vy;
    ball.vx = -5
    ball.vy = 0
    ball.width = 30
    ball.height = 30
+   ball.color = "black";
+
+
+ 
 
     function animate()
     {
@@ -31,6 +42,7 @@
         context.clearRect(0,0,canvas.width, canvas.height);	
         player1.drawRect();
         player2.drawRect();
+        
         
         //move player1
          //Update the Screen
@@ -99,13 +111,13 @@
         if(ball.y < ball.height/2){
             ball.y = ball.height/2
             ball.vy = -ball.vy;
-            ball.color="red"
+            ball.color="black"
         }
     
         if(ball.y > canvas.height - ball.height/2){
             ball.y = canvas.height - ball.height/2
             ball.vy = -ball.vy;
-            ball.color="blue"
+            ball.color="black"
         }
 
         //draw ball
@@ -123,7 +135,7 @@
 		//ball.x = player1.x - ball.width/2;
         ball.x = ball.width/2
             ball.vx = -ball.vx;
-            ball.color="green"
+            ball.color="black"
 		console.log("colliding");
 	}
 
@@ -135,14 +147,21 @@
 		console.log("colliding");
 	}
 
+
+    //points
     if(ball.x <= 0)
     {
         ball.x = canvas.width/2, canvas.height/2;
+        context.fillStyle = "black"
+        p1wins = p1wins + 1;
     }
 
     if(ball.x >= canvas.width)
     {
         ball.x = canvas.width/2, canvas.height/2;
+        //context.fillStyle = "black"
+        p2wins = p2wins + 1;
+        //context.fillText(p1wins, ' - ', p2wins, canvas.width / 2, canvas.height / 2);
     }
  /*   if(collision occurs)
 {
@@ -183,6 +202,13 @@
             ball.vy = 5;
         }
     }
+
+
+        context.font = "20px Georgia";
+        context.fillText("Pong", canvas.width/2, 50);
+        context.fillStyle = 'black';
+        context.textalign = 'center';
+        context.fillText(p1wins + ' - ' + p2wins, canvas.width / 2, 80);
 
         //context.clearRect(0,0,canvas.width, canvas.height);	
      }
