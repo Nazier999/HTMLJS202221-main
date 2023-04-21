@@ -28,11 +28,11 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	//Call just one of the functions below to view acceleration, friction, gravity and pixel lock.
-	//showAcceleration();
+	showAcceleration();
 	//showFriction();
 	//showGravity();
 	//showPixelLock();
-	showBounce();
+	//showBounce();
 	
 	player.drawRect();
 }
