@@ -142,7 +142,7 @@ while(platform1.hitTestPoint(ball.bottom()))
 	platform0.drawRect();
 	platform1.drawRect();
 	platform2.drawRect();
-	platform3.drawRect();
+	//platform3.drawRect();
 	platform4.drawRect();
 	ball.drawRect();
 	
