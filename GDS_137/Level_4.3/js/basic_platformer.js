@@ -99,7 +99,7 @@ function animate()
 	{
 		player.y--;
 		player.vy = 0;
-			player.canJump;
+		player.canJump = true;
 	}
 	
 	
