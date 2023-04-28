@@ -155,7 +155,7 @@ function animate()
             ball.vx = -ball.force;
            
         }
-
+//outer
 		if(ball.x < paddle.x - paddle.width/3)
         {
 			

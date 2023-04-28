@@ -90,6 +90,14 @@ function animate()
 		ball.vy = 0;
 		ball.canJump = true;
 	}
+	while(platform0.hitTestPoint(ball.bottom()+ ball.left) && ball.vy >=0)
+	{
+		ball.y--;
+		ball.vy = 0;
+		ball.x++;
+		ball.vx = 0;
+		ball.canJump = true;
+	}
 	
 	while(platform1.hitTestPoint(ball.left()))
 	{
