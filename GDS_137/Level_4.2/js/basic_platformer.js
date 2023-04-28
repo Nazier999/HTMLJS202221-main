@@ -121,7 +121,7 @@ function animate()
 				You simply need to change the values of the x and y properties of the object literals listed below to find the solution.
 	*/
 
-	while(platform0.hitTestPoint({x:player.x-50, y:player.y+50}) && player.vy >=0)
+	while(platform0.hitTestPoint({x:player.left().x, y:player.bottom().y}) && player.vy >=0)
 	{
 
 		player.y--;
@@ -131,7 +131,7 @@ function animate()
 	}
 	
 	
-	while(platform1.hitTestPoint({x:player.x+50, y:player.y+50}) && player.vy >=0)
+	while(platform1.hitTestPoint({x:player.right().x, y:player.bottom().y}) && player.vy >=0)
 	{
 		player.y--;
 		player.vy = 0;
