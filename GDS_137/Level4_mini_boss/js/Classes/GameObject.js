@@ -29,12 +29,12 @@ function GameObject(obj)
 			}
 		}
 		
-	this.drawRect = function()
+	this.drawRect = function(x=-this.width/2, y=-this.height/2)
 	{
 		context.save();
 			context.fillStyle = this.color;
 			context.translate(this.x, this.y);
-			context.fillRect((-this.width/2), (-this.height/2), this.width, this.height);
+			context.fillRect(x,y,this.width, this.height);
 		context.restore();
 		
 	}	

@@ -66,8 +66,8 @@ var healthBarWidth = 300;
 		healthbar1 = new GameObject();
 		healthbar1.width = 200;
 		healthbar1.height = 10;
-		healthbar1.y = 20;
-		healthbar1.x = canvas.width/6;
+		healthbar1.y = healthbar0.y - healthbar0.height/2;
+		healthbar1.x = healthbar0.x - healthbar0.width/2;
 		healthbar1.color = "green";
 		healthbar1.health = 100;
 		
@@ -241,28 +241,31 @@ function animate()
 		player.y--;
 		player.vy = -20;
 		player.vx = -40;
-		healthbar1.health -= 100;
-		
+		healthbar1.health -= 25;
+		healthbar1.width -= 50;
 	}
 	while(spikes0.hitTestPoint({x:player.left().x, y:player.bottom().y}) && player.vx <=0)
 	{
 		player.x++;
 		player.vx = 20;
 		player.vy = -20;
-		healthbar1.health -= 100;
+		healthbar1.health -= 25;
+		healthbar1.width -= 50;
 	}
 	while(spikes0.hitTestPoint({x:player.right().x, y:player.bottom().y}) && player.vx >=0)
 	{
 		player.x--;
 		player.vx = -20;
 		player.vy = - 20;		
-		healthbar1.health -= 100;
+		healthbar1.health -= 25;
+	healthbar1.width -= 50;
 	}
 	while(spikes0.hitTestPoint(player.top()) && player.vy <=0)
 	{
 		player.y++;
 		player.vy = 0;
-		healthbar1.health -= 100;
+		healthbar1.health -= 25;
+	healthbar1.width -= 50;
 	}
 	
 	//---------Objective: Treasure!!!!!!!---------------------------------------------------------------------------------------------------- 
@@ -272,26 +275,6 @@ function animate()
 	//---------RULE1: You cannot spawn your player on the pearl!
 	//---------RULE2: You cannot change the innitial locations of platform0 or the goal! 
 		
-	if(player.hitTestObject(goal))
-	{
-		goal.y = 10000;
-		context.textAlign = "center";
-		context.drawText("You Win!!!", canvas.width/2, canvas.height/2);
-	}
-
-	
-	if(healthbar1.health <= 0)
-	{
-		player.vx = 0;
-		player.vy = 0;
-		player.y++;
-		context.fillStyle = "black";
-        context.font = "25px Arial";
-		context.textAlign = "center";
-		context.fillText("you Dead", canvas.width/2, canvas.height/2);
-	}
-
-
 	
 
 	platform0.drawRect();
@@ -300,9 +283,33 @@ function animate()
 	platform3.drawRect();
 	platform4.drawRect();
 	spikes0.drawRect();
-	//healthbar0.drawRect();
-	//healthbar1.drawRect();
+	healthbar0.drawRect();
+	healthbar1.drawRect(0,0);
 
+
+	if(player.hitTestObject(goal))
+	{
+		goal.y = 10000;
+		context.textAlign = "center";
+		context.fillText("You Win!!!", canvas.width/2, canvas.height/2);
+	}
+
+	if(healthbar1.health <= 0)
+	{
+		healthbar1.health = 0;
+		player.vx = 0;
+		player.vy = 0;
+		player.y = 1000;
+		context.fillStyle = "black";
+        context.font = "25px Arial";
+		context.textAlign = "center";
+		context.fillText("You Died", canvas.width/2, canvas.height/2);
+	}
+
+
+	
+
+	
 
 
 	//Show hit points
