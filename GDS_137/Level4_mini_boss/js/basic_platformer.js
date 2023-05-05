@@ -288,7 +288,7 @@ function animate()
 		context.fillStyle = "black";
         context.font = "25px Arial";
 		context.textAlign = "center";
-		context.fillText("you died", canvas.width/2, canvas.height/2);
+		context.fillText("you Dead", canvas.width/2, canvas.height/2);
 	}
 
 
