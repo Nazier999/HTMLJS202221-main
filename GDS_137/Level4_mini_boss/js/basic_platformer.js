@@ -6,6 +6,9 @@ var timer;
 var interval;
 var player;
 
+var healthBarWidth = 300;
+
+
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
@@ -44,6 +47,31 @@ var player;
 		platform4.x = platform4.width + 100;
 		platform4.y = canvas.height - platform2.height * 3;
 		platform4.color = "#66ff33";
+
+		spikes0 = new GameObject();
+		spikes0.width = 50;
+		spikes0.height = 25;
+		spikes0.x = platform4.x - 60;
+		spikes0.y = platform4.y - 60;
+		spikes0.color = "grey";
+
+		
+		healthbar0 = new GameObject();
+		healthbar0.width = 200;
+		healthbar0.height = 10;
+		healthbar0.y = 20;
+		healthbar0.x = canvas.width/6;
+		healthbar0.color = "black";
+
+		healthbar1 = new GameObject();
+		healthbar1.width = 200;
+		healthbar1.height = 10;
+		healthbar1.y = 20;
+		healthbar1.x = canvas.width/6;
+		healthbar1.color = "green";
+		healthbar1.health = 100;
+		
+
 		
 	goal = new GameObject({width:24, height:50, x:canvas.width-50, y:100, color:"#00ffff"});
 	
@@ -206,6 +234,36 @@ function animate()
 		player.y++;
 		player.vy = 0;
 	}
+
+	while(spikes0.hitTestPoint(player.bottom()) && player.vy >=0)
+	{
+		
+		player.y--;
+		player.vy = -20;
+		player.vx = -40;
+		healthbar1.health -= 100;
+		
+	}
+	while(spikes0.hitTestPoint({x:player.left().x, y:player.bottom().y}) && player.vx <=0)
+	{
+		player.x++;
+		player.vx = 20;
+		player.vy = -20;
+		healthbar1.health -= 100;
+	}
+	while(spikes0.hitTestPoint({x:player.right().x, y:player.bottom().y}) && player.vx >=0)
+	{
+		player.x--;
+		player.vx = -20;
+		player.vy = - 20;		
+		healthbar1.health -= 100;
+	}
+	while(spikes0.hitTestPoint(player.top()) && player.vy <=0)
+	{
+		player.y++;
+		player.vy = 0;
+		healthbar1.health -= 100;
+	}
 	
 	//---------Objective: Treasure!!!!!!!---------------------------------------------------------------------------------------------------- 
 	//---------Run this program first.
@@ -220,17 +278,36 @@ function animate()
 		context.textAlign = "center";
 		context.drawText("You Win!!!", canvas.width/2, canvas.height/2);
 	}
+
 	
+	if(healthbar1.health <= 0)
+	{
+		player.vx = 0;
+		player.vy = 0;
+		player.y++;
+		context.fillStyle = "black";
+        context.font = "25px Arial";
+		context.textAlign = "center";
+		context.fillText("you died", canvas.width/2, canvas.height/2);
+	}
+
+
 	
+
 	platform0.drawRect();
 	platform1.drawRect();
 	platform2.drawRect();
 	platform3.drawRect();
 	platform4.drawRect();
+	spikes0.drawRect();
+	//healthbar0.drawRect();
+	//healthbar1.drawRect();
+
 
 
 	//Show hit points
 	player.drawRect();
 	goal.drawCircle();
+	//player.drawDebug();
 }
 
