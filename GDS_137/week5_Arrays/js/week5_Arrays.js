@@ -38,8 +38,8 @@ function animate()
 	for(var i = 0; i < amt; i++)
 	{
 		dots[i].drawCircle();
-		//dots[i].vy += gravity;
-		//dots[i].move();
+		dots[i].vy += gravity;
+		dots[i].move();
 	}
 }
 
