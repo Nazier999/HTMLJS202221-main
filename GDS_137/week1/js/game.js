@@ -121,7 +121,7 @@
         if(ball.y < ball.height/2){
             ball.y = ball.height/2
             ball.vy = -ball.vy;
-            ball.color="black"
+            ball.color="blue"
         }
     
         if(ball.y > canvas.height - ball.height/2){

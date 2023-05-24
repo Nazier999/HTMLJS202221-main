@@ -5,6 +5,7 @@ var context;
 var timer;
 var interval;
 var player;
+var lives = 3;
 
 var healthBarWidth = 300;
 
@@ -296,18 +297,34 @@ function animate()
 
 	if(healthbar1.health <= 0)
 	{
-		healthbar1.health = 0;
+		player.x = 100;
+		player.y = canvas.height / 2;
+		healthbar1.health = 100;
+		healthbar1.width = 200;
+		lives = lives - 1;
+	}
+	if(player.y > canvas.height - player.height/2){
+		player.x = 100;
+		player.y = canvas.height / 2;
+		lives = lives - 1;d
+	}
+	if(lives == 0)
+	{
 		player.vx = 0;
 		player.vy = 0;
 		player.y = -1000;
 		context.fillStyle = "black";
-        context.font = "25px Arial";
+        context.font = "20px Georgia";
 		context.textAlign = "center";
-		context.fillText("You Died", canvas.width/2, canvas.height/2);
+		context.fillText("GAME OVER", canvas.width/2, canvas.height/2);
 	}
-
-
+// x:100, y:canvas.height/2-100
 	
+context.font = "20px Georgia";
+context.fillStyle = 'black';
+context.textalign = 'center';
+context.fillText('HP: ', canvas.width/30 - 15, 25);
+context.fillText('LIVES: ' + lives, canvas.width/30 - 20, 50);
 
 	
 
