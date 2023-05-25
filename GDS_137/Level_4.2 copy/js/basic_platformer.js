@@ -38,7 +38,7 @@ var speedTimer;
 	interval = 1000/60;
 	timer = setInterval(animate, interval);
 
-	speedTimer = setTimeout(timeup, 10000);
+	
 
 	function timeup(){
 		powerSpeed.y = 1000000;
@@ -153,7 +153,7 @@ function animate()
 
 	if(player.hitTestObject(powerSpeed))
 	{
-		
+		speedTimer = setTimeout(timeup, 10000);
 		powerSpeed.y = player.y;
 		powerSpeed.x = player.x;
 		
