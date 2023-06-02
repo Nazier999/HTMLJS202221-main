@@ -75,6 +75,7 @@ var healthBarWidth = 300;
 
 		
 	goal = new GameObject({width:24, height:50, x:canvas.width-50, y:100, color:"#00ffff"});
+	health = new GameObject({width:24, height:50, x:canvas.width-250, y:100, color:"green"});
 	
 
 	var fX = .85;
@@ -291,8 +292,13 @@ function animate()
 	if(player.hitTestObject(goal))
 	{
 		goal.y = 10000;
-		context.textAlign = "center";
-		context.fillText("You Win!!!", canvas.width/2, canvas.height/2);
+	}
+	
+	if(player.hitTestObject(health))
+	{
+		health.y = 10000;
+		healthbar1.health = healthbar1.health + 10;
+		healthbar1.width = healthbar1.width + 40;
 	}
 
 	if(healthbar1.health <= 0)
@@ -332,6 +338,7 @@ context.fillText('LIVES: ' + lives, canvas.width/30 - 20, 50);
 	//Show hit points
 	player.drawRect();
 	goal.drawCircle();
+	health.drawCircle();
 	//player.drawDebug();
 }
 

@@ -292,6 +292,7 @@ function animate()
 		goal.y = 10000;
 		context.textAlign = "center";
 		context.fillText("You Win!!!", canvas.width/2, canvas.height/2);
+		
 	}
 
 	if(healthbar1.health <= 0)
