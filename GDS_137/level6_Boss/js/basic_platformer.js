@@ -301,6 +301,12 @@ function animate()
 		healthbar1.width = healthbar1.width + 40;
 	}
 
+	if(healthbar1.health >= 100 && healthbar1.width >= 200)
+	{
+		healthbar1.health = 100;
+		healthbar1.width = 200;
+	}
+
 	if(healthbar1.health <= 0)
 	{
 		player.x = 100;
@@ -308,6 +314,8 @@ function animate()
 		healthbar1.health = 100;
 		healthbar1.width = 200;
 		lives = lives - 1;
+		goal.y = 100;
+		health.y = 100;
 	}
 	if(player.y > canvas.height - player.height/2){
 		player.x = 100;
